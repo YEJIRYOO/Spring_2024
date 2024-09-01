@@ -1,3 +1,5 @@
+package hello.core;
+
 import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
@@ -6,7 +8,7 @@ import hello.core.member.MemberServiceImpl;
 import org.junit.jupiter.api.Test;
 
 
-public class MemberServiceTest {
+class MemberServiceTest {
 
     //인터페이스 타입의 변수에 구현 객체 생성
     //다형성

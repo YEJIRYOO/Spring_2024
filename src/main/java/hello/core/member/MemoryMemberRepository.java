@@ -7,6 +7,7 @@ import java.util.Map;
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store=new HashMap<>();
+    //동시성 이슈로 ConcurrentHashMap 이용 권장
 
     @Override
     public void save(Member member){
