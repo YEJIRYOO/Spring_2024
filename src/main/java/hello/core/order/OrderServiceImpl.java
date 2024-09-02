@@ -16,6 +16,7 @@ public class OrderServiceImpl implements OrderService{
 
         Member member=memberRepository.findById(memberId);
         int discountPrice= discountPolicy.discount(member,itemPrice);
+        //SRP 준수!
 
         return new Order(memberId,itemName,itemPrice,discountPrice);
         //주문 객체 생성하여 반환
