@@ -43,4 +43,5 @@ class RateDiscountPolicyTest {
         Assertions.assertThat(discount).isEqualTo(0);
     }
 
+    //git 계정 테스트용
 }
