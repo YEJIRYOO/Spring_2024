@@ -9,6 +9,8 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+//YeJiRyoo계정으로 커밋
+
 /*
  AppConfig-> 애플리케이션의 전체 동작 방식 구성(config)위해,
  * 구현 객체 생성
