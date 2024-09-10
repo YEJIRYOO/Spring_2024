@@ -1,5 +1,6 @@
 package hello.core.member;
 
+//멤버 도메인
 public class Member {
 
     private Long id;
