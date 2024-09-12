@@ -1,9 +1,13 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 /*
 구현체 하나만 있을 때 Impl로 작성
  but 확장시에 문제 발생 가능할듯
  */
+@Component
 public class MemberServiceImpl implements MemberService{
 
     //AppConfig 이전
@@ -23,6 +27,7 @@ public class MemberServiceImpl implements MemberService{
      */
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberServiceImpl(MemberRepository memberRepository){
         this.memberRepository=memberRepository;
     }
