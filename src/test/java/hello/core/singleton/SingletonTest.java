@@ -20,7 +20,6 @@ public class SingletonTest {
 
         //1. 조회: 호출할 때 마다 객체 생성
         MemberService memberService1= appConfig.memberService();
-
         //2. 조회: 호출할 때 마다 객체 생성
         MemberService memberService2= appConfig.memberService();
 
@@ -30,6 +29,7 @@ public class SingletonTest {
 
         //memberService1 != memberService2
         assertThat(memberService1).isNotSameAs(memberService2);
+        //same 과 equals 구분
     }
 
     @Test
@@ -66,4 +66,7 @@ public class SingletonTest {
         //memberService1 == memberService2
         assertThat(memberService1).isSameAs(memberService2);
     }
+    /*
+    스프링 컨테이너 -> 기본적으로 싱글톤으로 생성
+     */
 }

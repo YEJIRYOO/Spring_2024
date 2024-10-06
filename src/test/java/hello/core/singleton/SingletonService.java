@@ -2,6 +2,7 @@ package hello.core.singleton;
 
 public class SingletonService {
 
+    //싱글톤 패턴
     //메모리 영역
     //1. static 영역에 하나의 객체 생성해둠
     private static final SingletonService instance=new SingletonService();
