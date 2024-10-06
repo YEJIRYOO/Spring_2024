@@ -42,4 +42,9 @@ public class OrderServiceImpl implements OrderService{
         return new Order(memberId,itemName,itemPrice,discountPrice);
         //주문 객체 생성하여 반환
     }
+
+    //싱글톤 테스트용
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }

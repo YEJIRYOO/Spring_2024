@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
  의 책임 가지는 별도의 설정 클래스
  */
 
+
 //애플리케이션의 실제 동작에 필요한 구현 객체 생성
 @Configuration //설정 구성
 public class AppConfig {
@@ -37,10 +38,6 @@ public class AppConfig {
                 new FixDiscountPolicy());
     }
      */
-    @Bean //스프링 컨테이너에 스프링 빈으로 등록
-    public MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
-    }
 
     @Bean
     public DiscountPolicy discountPolicy(){
@@ -52,10 +49,18 @@ public class AppConfig {
     //   DiscountPolicy 로는 FixDiscountPolicy 를 사용함을 한 눈에 알 수 O
     //   향후 수정 시 생성 부분만 수정하면 됨
 
+    //@Bean memberService -> new MemoryMemberRepository
+    //@Bean orderService -> new MemoryMemberRepository
+    //-> 다른 두 개의 객체 생성. 싱글톤 깨지나?
     @Bean
     public MemberService memberService(){
         //생성자 주입
         return new MemberServiceImpl(memberRepository());
+    }
+
+    @Bean //스프링 컨테이너에 스프링 빈으로 등록
+    public MemberRepository memberRepository(){
+        return new MemoryMemberRepository();
     }
 
     @Bean
