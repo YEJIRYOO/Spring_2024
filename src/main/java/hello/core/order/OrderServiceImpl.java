@@ -5,6 +5,7 @@ import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import hello.core.member.MemberService;
 import hello.core.member.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,11 +25,15 @@ public class OrderServiceImpl implements OrderService{
     //AppConfig 이후
     //구현체가 아닌 인터페이스에 의존
     //실행에만 집중
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+//    private final MemberRepository memberRepository;
+//    private final DiscountPolicy discountPolicy;
 
-    //생성자 이용 생성 단계에서 자동으로 주입
-    @Autowired
+    //수정 메서드 추가 구현
+    private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
+
+    //생성자 이용 생성 단계에서 자동으로 주입 + <생성자 1개 -> 생략 가능>
+    //@Autowired
     public OrderServiceImpl(MemberRepository memberRepository,DiscountPolicy discountPolicy){
         this.memberRepository=memberRepository;
         this.discountPolicy=discountPolicy;
@@ -47,5 +52,15 @@ public class OrderServiceImpl implements OrderService{
     //싱글톤 테스트용
     public MemberRepository getMemberRepository() {
         return memberRepository;
+    }
+
+    @Autowired
+    public void setMemberRepository(MemberRepository memberRepository){
+        this.memberRepository=memberRepository;
+    }
+
+    @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
     }
 }
