@@ -10,11 +10,20 @@ mainClassName = 'hello.core.OrderApp'  // 예: 'com.example.OrderApp'
 group = 'hello'
 version = '0.0.1-SNAPSHOT'
 
+//lombok 설정 추가
+configurations {
+	compileOnly{
+		extendsFrom annotationProcessor
+	}
+}
+//
+
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(17)
 	}
 }
+
 
 repositories {
 	mavenCentral()
@@ -24,6 +33,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	//lombok 라이브러리
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+	//컴파일 시점에 애노테이션 프로세서 통해 코드 제공
+	//
 }
 
 tasks.named('test') {
