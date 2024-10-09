@@ -27,6 +27,7 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
+    //생성자 이용 생성 단계에서 자동으로 주입
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository,DiscountPolicy discountPolicy){
         this.memberRepository=memberRepository;

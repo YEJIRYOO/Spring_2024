@@ -27,7 +27,8 @@ public class MemberServiceImpl implements MemberService{
      */
     private final MemberRepository memberRepository;
 
-    @Autowired
+    //생성자 단계
+    @Autowired //자동 의존관계 주입_ ac.getBean(MemberRepository.class)
     public MemberServiceImpl(MemberRepository memberRepository){
         this.memberRepository=memberRepository;
     }
