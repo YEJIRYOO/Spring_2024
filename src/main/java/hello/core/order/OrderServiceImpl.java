@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
     //AppConfig 이전
@@ -34,10 +35,12 @@ public class OrderServiceImpl implements OrderService{
 
     //생성자 이용 생성 단계에서 자동으로 주입 + <생성자 1개 -> 생략 가능>
     //@Autowired
+/*
     public OrderServiceImpl(MemberRepository memberRepository,DiscountPolicy discountPolicy){
         this.memberRepository=memberRepository;
         this.discountPolicy=discountPolicy;
     }
+*/
     @Override
     public Order createOrder(Long memberId,String itemName,int itemPrice){
 
