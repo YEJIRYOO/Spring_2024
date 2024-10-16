@@ -10,11 +10,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class OrderServiceTest {
-    /* AppConfig 이전*/
-    /*
-    MemberService memberService=new MemberServiceImpl();
-    OrderService orderService=new OrderServiceImpl();
-    */
+    // AppConfig 이전*/
+    //
+    //MemberService memberService=new MemberServiceImpl();
+    //OrderService orderService=new OrderServiceImpl();
+
 
     MemberService memberService;
     OrderService orderService;
