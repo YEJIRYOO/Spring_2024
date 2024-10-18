@@ -66,7 +66,8 @@ public class AppConfig {
     @Bean
     public OrderService orderService() {
         //구현체 반환
-        return new OrderServiceImpl();
+//        return new OrderServiceImpl();
+        return null;
     }
 
     //-> 현재 내 애플리케이션에서 사용하는 memberRepository 와 discountPolicy 를 사용할거야

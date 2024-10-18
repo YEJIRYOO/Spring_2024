@@ -31,17 +31,17 @@ public class OrderServiceImpl implements OrderService{
 //    private final DiscountPolicy discountPolicy;
 
     //수정 메서드 추가 구현
-    private MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
 
     //생성자 이용 생성 단계에서 자동으로 주입 + <생성자 1개 -> 생략 가능>
     //@Autowired
-/*
-    public OrderServiceImpl(MemberRepository memberRepository,DiscountPolicy discountPolicy){
-        this.memberRepository=memberRepository;
-        this.discountPolicy=discountPolicy;
-    }
-*/
+
+//    public OrderServiceImpl(MemberRepository memberRepository,DiscountPolicy discountPolicy){
+//        this.memberRepository=memberRepository;
+//        this.discountPolicy=discountPolicy;
+//    }
+
     @Override
     public Order createOrder(Long memberId,String itemName,int itemPrice){
 
@@ -57,14 +57,14 @@ public class OrderServiceImpl implements OrderService{
     public MemberRepository getMemberRepository() {
         return memberRepository;
     }
-
-    @Autowired
-    public void setMemberRepository(MemberRepository memberRepository){
-        this.memberRepository=memberRepository;
-    }
-
-    @Autowired
-    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
-        this.discountPolicy = discountPolicy;
-    }
+//
+//    @Autowired
+//    public void setMemberRepository(MemberRepository memberRepository){
+//        this.memberRepository=memberRepository;
+//    }
+//
+//    @Autowired
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+//        this.discountPolicy = discountPolicy;
+//    }
 }
