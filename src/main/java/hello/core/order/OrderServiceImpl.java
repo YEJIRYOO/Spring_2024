@@ -27,8 +27,6 @@ public class OrderServiceImpl implements OrderService{
     //AppConfig 이후
     //구현체가 아닌 인터페이스에 의존
     //실행에만 집중
-//    private final MemberRepository memberRepository;
-//    private final DiscountPolicy discountPolicy;
 
     //수정 메서드 추가 구현
     private final MemberRepository memberRepository;
