@@ -31,6 +31,7 @@ public class AllBeanTest {
         private final Map<String, DiscountPolicy>policyMap;
         private final List<DiscountPolicy>policies;
 
+        //하나의 생성자 -> @Autowired 생략 가능
         public DiscountService(Map<String,DiscountPolicy>policyMap,
                                List<DiscountPolicy>policies){
             this.policyMap=policyMap;
