@@ -18,10 +18,20 @@ public class BeanLifeCycleTest {
     @Configuration
     static class LifeCycleConfig{
 
+        /*
         //CallBack 2: Bean Option -> Setting initial method & destroy method
         @Bean(initMethod = "init",destroyMethod = "close")
         public NetworkClient networkClient(){
             NetworkClient networkClient=new NetworkClient();
+            networkClient.setUrl("http://hello-spring.dev");
+            return networkClient;
+        }
+         */
+
+        //CallBack 1 & 3: Without Bean Option
+        @Bean
+        public NetworkClient networkClient() {
+            NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-spring.dev");
             return networkClient;
         }

@@ -1,8 +1,11 @@
 package hello.core.lifecycle;
 
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+
 
 /*
 //LifeCycle CallBack 1 : Using interface
@@ -74,6 +77,8 @@ public class NetworkClient{
         System.out.println("close: "+url);
     }
 
+    /*
+//LifeCycle CallBack 2 : Using Bean Option
     public void init(){
         System.out.println("NetworkClient.init");
         connect();
@@ -84,5 +89,19 @@ public class NetworkClient{
         System.out.println("NetworkClient.close");
         disconnect();
     }
+     */
 
+//LifeCycle CallBack 3: Using Annotation
+    @PostConstruct
+    public void init(){
+        System.out.println("NetworkClient.init");
+        connect();
+        call("초기화 연결 메시지");
+    }
+
+    @PreDestroy
+    public void close(){
+        System.out.println("NetworkClient.close");
+        disconnect();
+    }
 }
