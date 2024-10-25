@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -29,13 +30,25 @@ public class PrototypeProviderTest {
     }
 
     static class ClientBean{
-
+        /*
+        //sol1: using provider
         @Autowired
         private ApplicationContext ac;
 
         public int logic(){
             //항상 새로운 프로토타입 빈 생성
             PrototypeBean prototypeBean=ac.getBean(PrototypeBean.class);
+            prototypeBean.addCount();
+            int count= prototypeBean.getCount();
+            return count;
+        }
+        //문제점: 스프링 컨테이너에 종속적
+         */
+        @Autowired
+        private ObjectProvider<PrototypeBean> prototypeBeanProvider;
+
+        public int logic(){
+            PrototypeBean prototypeBean= prototypeBeanProvider.getObject();
             prototypeBean.addCount();
             int count= prototypeBean.getCount();
             return count;
