@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LogDemoController {
 
     private final LogDemoService logDemoService;
-    private final MyLogger myLogger;
+    private final MyLogger myLogger; //request scope
 
     @RequestMapping("log-demo")
-    @ResponseBody
+    @ResponseBody //뷰 없이 문자 반환
     public String logDemo(HttpServletRequest request){
         String requestURL=request.getRequestURL().toString();
         myLogger.setRequestURL(requestURL);
