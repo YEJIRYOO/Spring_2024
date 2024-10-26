@@ -2,6 +2,7 @@ package hello.core.scope;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import jakarta.inject.Provider;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.ObjectProvider;
@@ -31,7 +32,8 @@ public class PrototypeProviderTest {
 
     static class ClientBean{
         /*
-        //sol1: using provider
+        //sol1: using provider_ApplicationContext DL
+
         @Autowired
         private ApplicationContext ac;
 
@@ -44,6 +46,9 @@ public class PrototypeProviderTest {
         }
         //문제점: 스프링 컨테이너에 종속적
          */
+
+        /*
+        //sol2: using ObjectProvider
         @Autowired
         private ObjectProvider<PrototypeBean> prototypeBeanProvider;
 
@@ -51,6 +56,18 @@ public class PrototypeProviderTest {
             PrototypeBean prototypeBean= prototypeBeanProvider.getObject();
             prototypeBean.addCount();
             int count= prototypeBean.getCount();
+            return count;
+        }
+         */
+
+        //sol3: using JSR-330 Provider
+        @Autowired
+        private Provider<PrototypeBean> provider;
+
+        public int logic(){
+            PrototypeBean prototypeBean=provider.get();
+            prototypeBean.addCount();
+            int count=prototypeBean.getCount();
             return count;
         }
     }

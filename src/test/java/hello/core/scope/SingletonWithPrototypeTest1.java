@@ -19,7 +19,7 @@ public class SingletonWithPrototypeTest1 {
 
         PrototypeBean prototypeBean2=ac.getBean(PrototypeBean.class);
         prototypeBean2.addCount();
-        Assertions.assertThat(prototypeBean2.getCount()).isEqualTo(2);
+        Assertions.assertThat(prototypeBean2.getCount()).isEqualTo(1);
     }
 
     @Test
@@ -27,13 +27,13 @@ public class SingletonWithPrototypeTest1 {
         AnnotationConfigApplicationContext ac=
                 new AnnotationConfigApplicationContext(ClientBean.class,PrototypeBean.class);
 
-        ClientBean clientBean1=ac.getBean(ClientBean.class);
+        ClientBean clientBean1=ac.getBean(ClientBean.class); //매번 직접 주입
         int count1= clientBean1.logic();
         Assertions.assertThat(count1).isEqualTo(1);
 
         ClientBean clientBean2=ac.getBean(ClientBean.class);
         int count2=clientBean2.logic();
-        Assertions.assertThat(count2).isEqualTo(2);
+        Assertions.assertThat(count1).isEqualTo(1);
     }
 
     static class ClientBean{

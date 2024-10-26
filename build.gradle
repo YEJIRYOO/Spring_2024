@@ -40,6 +40,10 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	//컴파일 시점에 애노테이션 프로세서 통해 코드 제공
 	//
+	//JSR-330 Provider
+	implementation 'jakarta.inject:jakarta.inject-api:2.0.1'
+	//web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 }
 
 tasks.named('test') {
